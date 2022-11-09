@@ -1,15 +1,17 @@
+<form [formGroup]="contectForm">
 <h1 mat-dialog-title class="title">Create New User</h1>
 <div mat-dialog-content>
 <mat-form-field appearance="outline" class="name">
   <mat-label>First Name</mat-label>
-  <input matInput placeholder="Name">
+  <input matInput placeholder="Name" formControlName = 'firstName'>
 </mat-form-field>
 <mat-form-field appearance="outline" class="name">
   <mat-label>Last Name</mat-label>
-  <input matInput placeholder="LastName">
+  <input matInput placeholder="LastName" formControlName = 'lastName'>
 </mat-form-field>
 </div>
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button color="primary">Add</button>
   <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
 </div>
+</form>

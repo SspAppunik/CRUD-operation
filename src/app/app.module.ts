@@ -9,6 +9,7 @@ import { HeaderComponent } from './home/header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HomeModule } from './home/home.module';
 import { DialogComponent } from './home/dialog/dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { DialogComponent } from './home/dialog/dialog.component';
     BrowserAnimationsModule,
     MatModule,
     HomeModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
