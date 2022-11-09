@@ -1,0 +1,15 @@
+<h1 mat-dialog-title class="title">Create New User</h1>
+<div mat-dialog-content>
+<mat-form-field appearance="outline" class="name">
+  <mat-label>First Name</mat-label>
+  <input matInput placeholder="Name">
+</mat-form-field>
+<mat-form-field appearance="outline" class="name">
+  <mat-label>Last Name</mat-label>
+  <input matInput placeholder="LastName">
+</mat-form-field>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="primary">Add</button>
+  <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+</div>
