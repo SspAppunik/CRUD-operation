@@ -27,7 +27,6 @@ export class DialogComponent implements OnInit {
   saveData() {
     if (this.contectForm.valid) {
       this.data.postList(this.contectForm.value)
-
         .subscribe({
           next: (res) => {
             alert("user added sucessfully")

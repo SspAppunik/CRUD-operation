@@ -1,6 +1,10 @@
 {
-  "StudentList": [
-    {}
+  "studentList": [
+    {
+      "firstName": "ssp",
+      "lastName": "prajapati",
+      "id": 1
+    }
   ],
   "comments": [
     {

@@ -9,10 +9,10 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   postList(data: any) {
-    return this.http.post<any>("http://localhost:3000/StudentList/", data)
+    return this.http.post<any>("http://localhost:3000/studentList/", data)
   }
 
   getList() {
-    return this.http.get<any>("http://localhost:3000/StudentList/");
+    return this.http.get<any>("http://localhost:3000/studentList/");
   }
 }
