@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,FormBuilder,Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-dialog',
@@ -8,13 +9,34 @@ import { FormGroup,FormControl,FormBuilder,Validators } from '@angular/forms';
 })
 export class DialogComponent implements OnInit {
 
-  contectForm! : FormGroup;
-  formbuilder: any;
-  constructor(formbuilder : FormBuilder) { }
+  contectForm!: FormGroup;
+  constructor(private fb: FormBuilder, private data: DataService) { }
 
   ngOnInit(): void {
-    this.contectForm = this.formbuilder.group([
-    ])
+
+    this.contectForm = this.fb.group({
+      'firstName': new FormControl('', [
+        Validators.required,
+      ]),
+      'lastName': new FormControl('', [
+        Validators.required,
+      ])
+    })
+  }
+
+  saveData() {
+    if (this.contectForm.valid) {
+      this.data.postList(this.contectForm.value)
+
+        .subscribe({
+          next: (res) => {
+            alert("user added sucessfully")
+          },
+          error: (res) => {
+            alert("user not added")
+          }
+        })
+    }
   }
 
 }
