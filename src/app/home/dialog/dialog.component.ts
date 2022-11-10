@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from 'src/app/data.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { DataService } from 'src/app/data.service';
 export class DialogComponent implements OnInit {
 
   contectForm!: FormGroup;
-  constructor(private fb: FormBuilder, private data: DataService) { }
+  constructor(private fb: FormBuilder, private data: DataService, private dialogRef: MatDialogRef<DialogComponent>) { }
 
   ngOnInit(): void {
 
@@ -30,6 +31,8 @@ export class DialogComponent implements OnInit {
         .subscribe({
           next: (res) => {
             alert("user added sucessfully")
+            this.contectForm.reset();
+            this.dialogRef.close();
           },
           error: (res) => {
             alert("user not added")
