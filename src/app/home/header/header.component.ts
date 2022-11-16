@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   openDialog() {
-    this.dialog.open(DialogComponent);
+    this.dialog.open(DialogComponent)
   }
   ngOnInit(): void {
   }

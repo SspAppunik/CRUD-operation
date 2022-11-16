@@ -15,4 +15,12 @@ export class DataService {
   getList() {
     return this.http.get<any>("http://localhost:3000/studentList/");
   }
+
+  putList(data: any , id: number) {
+    return this.http.put<any>("http://localhost:3000/studentList/" +id,data)
+  }
+
+  deleteUser(id: number) {
+    return this.http.delete<any>("http://localhost:3000/studentList/" +id)
+  }
 }
