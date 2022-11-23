@@ -5,6 +5,8 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { IModel } from '../model.config';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +15,7 @@ import { DialogComponent } from './dialog/dialog.component';
 export class HomeComponent implements OnInit  {
 
   displayedColumns: string[] = ['id','firstName', 'lastName','action'];
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<IModel>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -40,7 +42,7 @@ export class HomeComponent implements OnInit  {
     this.data.getList()
       .subscribe({
         next: (res) => {
-          this.dataSource = new MatTableDataSource(res);
+          this.dataSource = new MatTableDataSource<IModel>(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
         },

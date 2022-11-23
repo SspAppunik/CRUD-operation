@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs';
+import { IModel } from './model.config';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,19 +9,19 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  postList(data: any) {
-    return this.http.post<any>("http://localhost:3000/studentList/", data)
+  postList(data: IModel[]) {
+    return this.http.post<IModel[]>("http://localhost:3000/studentList/", data)
   }
 
-  getList() {
-    return this.http.get<any>("http://localhost:3000/studentList/");
+  getList():Observable<IModel[]> {
+    return this.http.get<IModel[]>("http://localhost:3000/studentList/");
   }
 
-  putList(data: any , id: number) {
-    return this.http.put<any>("http://localhost:3000/studentList/" +id,data)
+  putList(data: IModel , id: number) {
+    return this.http.put<IModel[]>("http://localhost:3000/studentList/" +id,data)
   }
 
   deleteUser(id: number) {
-    return this.http.delete<any>("http://localhost:3000/studentList/" +id)
+    return this.http.delete<IModel[]>("http://localhost:3000/studentList/" +id)
   }
 }
